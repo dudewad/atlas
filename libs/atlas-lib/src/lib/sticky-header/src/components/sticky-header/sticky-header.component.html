@@ -1,0 +1,11 @@
+<div class="header-content">
+  <div class="logo">
+    <ng-content select="[logo]"></ng-content>
+  </div>
+  <ul>
+    <li *ngFor="let item of items;"
+        (click)="onItemClick($event)">
+      {{item.label}}
+    </li>
+  </ul>
+</div>

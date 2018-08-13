@@ -1,0 +1,19 @@
+@import './breakpoints';
+
+@mixin pageContainer() {
+  display: block;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media screen and (min-width: $screen-md-min) {
+    max-width: $screen-md-min;
+  }
+
+  @media screen and (min-width: $screen-lg-min) {
+    max-width: $screen-lg-min;
+  }
+
+  @media screen and (min-width: $screen-xl-min) {
+    max-width: $screen-xl-min;
+  }
+}

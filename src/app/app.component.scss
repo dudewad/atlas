@@ -1,0 +1,25 @@
+@import '~atlas-theme/src/styles/core/breakpoints';
+
+[logo] {
+  width: 80px;
+  height: auto;
+}
+
+@media screen and (min-width: $screen-md-min) {
+  [logo] {
+    width: 180px;
+  }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+  [logo] {
+    width: 250px;
+  }
+}
+
+
+@media screen and (min-width: $screen-xl-min) {
+  [logo] {
+    width: 300px;
+  }
+}
