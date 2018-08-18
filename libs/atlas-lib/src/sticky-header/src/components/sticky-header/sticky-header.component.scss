@@ -1,0 +1,125 @@
+@import '~atlas-theme/src/styles/core/breakpoints';
+@import '~atlas-theme/src/styles/core/mixins';
+
+$tTime: .2s;
+
+:host {
+  @include pageContainer();
+}
+
+menu {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  &.primary {
+    float: right;
+    margin: 4px 0 0 0;
+  }
+
+  &.collapsed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    transition: opacity $tTime, width $tTime;
+
+    &.active {
+      opacity: 1;
+      width: 100%;
+      transition: width 0s;
+
+      .menu-area {
+        transform: translateX(0);
+      }
+    }
+
+    header {
+      padding: 10px;
+    }
+
+    ul {
+      display: block;
+    }
+
+    li {
+      display: block;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .menu-area {
+      position: absolute;
+      display: block;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      transform: translateX(100%);
+      transition: transform $tTime;
+      background: #FFF;
+    }
+  }
+}
+
+ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  list-style: none;
+}
+
+li {
+  display: inline;
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.collapse-menu-trigger {
+  float: right;
+  margin-left: 30px;
+}
+
+.header-content {
+  padding-top: 40px;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.close-hit-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: $screen-lg-min) {
+  ul {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (min-width: $screen-xl-min) {
+  ul {
+    font-size: 16px;
+  }
+
+  li {
+    margin-right: 50px;
+  }
+
+  .collapse-menu-trigger {
+    margin-left: 50px;
+  }
+}

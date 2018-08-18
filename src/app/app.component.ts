@@ -11,7 +11,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Dictionary, StickyHeaderItem } from 'atlas-lib';
+import { StickyHeaderItem } from 'atlas-lib/sticky-header';
+import { BreakpointConfig, Dictionary } from 'atlas-lib/utils';
 
 import { BpCfg } from 'app/utils';
 
@@ -35,13 +36,14 @@ const logos: Dictionary<string> = {
 export class AppComponent implements OnDestroy, OnInit {
   public logoIcon: string = logos.logoFull;
   public menuItems: StickyHeaderItem[] = [
-    { label: 'Shop' },
-    { label: 'Why Standing Desks' },
-    { label: 'Premium Hardwoods' },
-    { label: 'Our Master Craftsmen' },
-    { label: 'Sustainability' },
-    { label: 'Atlas Desk' },
+    { label: 'Shop', showAt: 'mdMin' },
+    { label: 'Why Standing Desks', showAt: 'mdMin' },
+    { label: 'Premium Hardwoods', showAt: 'mdMin' },
+    { label: 'Our Master Craftsmen', showAt: 'lgMin' },
+    { label: 'Sustainability', showAt: 'lgMin' },
+    { label: 'Atlas Desk', showAt: 'mdMin' },
   ];
+  public bpCfg: BreakpointConfig = BpCfg;
 
   private destroy$ = new Subject<void>();
 
@@ -70,13 +72,10 @@ export class AppComponent implements OnDestroy, OnInit {
 
   private onBreakpointChange() {
     if (this.breakpointObs.isMatched(BpCfg.lgMin)) {
-      console.log('Matched BpCfg.lgMin', BpCfg.lgMin);
       this.logoIcon = logos.logoFull;
     } else if (this.breakpointObs.isMatched(BpCfg.mdMin)) {
-      console.log('Matched BpCfg.mdMin', BpCfg.mdMin);
       this.logoIcon = logos.logoTypographic;
     } else {
-      console.log('Matched None');
       this.logoIcon = logos.logoTypographicSmall;
     }
 
