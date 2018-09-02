@@ -5,9 +5,41 @@
   <mat-icon [svgIcon]="'menu'" collapse-menu-trigger></mat-icon>
   <mat-icon [svgIcon]="'close'" collapse-menu-close-trigger></mat-icon>
   <ng-container rich-menu-content>
-    <atl-rich-content-item *ngFor="let item of menuItems;" [name]="item.action.target">
+    <atl-rich-content-item [name]="'shop'">
       <div class="page-container">
-        {{ item.label }}
+        <h1>Shop our products</h1>
+      </div>
+    </atl-rich-content-item>
+    <atl-rich-content-item [name]="'whyStand'">
+      <div class="page-container">
+        <h1>Why Standing Desks?</h1>
+        <p>This is a section about why you should choose a standing desks</p>
+        <p>This is a section about why you should choose a standing desks</p>
+        <p>This is a section about why you should choose a standing desks</p>
+      </div>
+    </atl-rich-content-item>
+    <atl-rich-content-item [name]="'premiumHardwoods'">
+      <div class="page-container">
+        <h1>Premium Hardwoods</h1>
+        <p>This is a section about our premium selection of hardwoods</p>
+      </div>
+    </atl-rich-content-item>
+    <atl-rich-content-item [name]="'masterCraftsmen'">
+      <div class="page-container">
+        <h1>Our Master Craftsmen</h1>
+      </div>
+    </atl-rich-content-item>
+    <atl-rich-content-item [name]="'sustainability'">
+      <div class="page-container">
+        <h1>Sustainability</h1>
+        <p>This is a section about sustainability</p>
+        <p>This is a section about sustainability!</p>
+      </div>
+    </atl-rich-content-item>
+    <atl-rich-content-item [name]="'atlasDesk'">
+      <div class="page-container">
+        <h1>Atlas Desks are awesome</h1>
+        <p>This is a section about atlas desks</p>
       </div>
     </atl-rich-content-item>
   </ng-container>

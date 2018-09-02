@@ -5,75 +5,115 @@ $tTime: .35s;
 
 :host {
   &::ng-deep {
-    atl-sticky-header {
-      &.sticking,
-      &.richContentItemOpen {
-        .position-container {
-          background: $clr-gray-xxl;
-          color: $clr-gray-xd;
-          fill: $clr-gray-xd;
-        }
+    .sticking,
+    .richContentItemOpen {
+      .position-container {
+        background: $clr-gray-xxl;
+        color: $clr-gray-xxd;
+        fill: $clr-gray-xxd;
+      }
 
-        .rich-menu-content {
+      .rich-menu-content {
+        opacity: 1;
+      }
+
+      atl-rich-content-item {
+        &.active {
+          position: relative;
           opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
         }
+      }
+    }
 
-        atl-rich-content-item {
+    .rich-menu-content {
+      opacity: 0;
+      overflow: hidden;
+      background: $clr-gray-xxl;
+      transition: opacity $tTime;
+    }
+
+    .collapse-menu-trigger {
+      margin-top: -1px;
+    }
+
+    atl-rich-content-item {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 30px 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity $tTime, transform $tTime;
+      background: $clr-gray-xxl;
+    }
+
+    .position-container {
+      background: transparent;
+      color: $clr-gray-xxl;
+      fill: $clr-gray-xxl;
+      transition: all $tTime;
+    }
+
+    menu {
+      &.primary {
+        button {
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 12px;
+
           &.active {
-            position: relative;
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
+            color: $clr-yellow-xl;
+
+            mat-icon {
+              opacity: 1;
+              transform: translateY(8px);
+            }
+          }
+
+          mat-icon {
+            width: 14px;
+            stroke: $clr-gray-xxd;
+            opacity: 0;
+            transform: translateY(-2px);
+            transition: opacity $tTime, transform $tTime;
           }
         }
       }
 
-      .rich-menu-content {
-        opacity: 0;
-        overflow: hidden;
-        background: $clr-gray-xxl;
-        transition: opacity $tTime;
-      }
+      &.collapsed {
+        color: $clr-gray-xxd;
 
-      atl-rich-content-item {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        padding: 30px 0;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity $tTime, transform $tTime;
-        background: $clr-gray-xxl;
-      }
+        .menu-area {
+          border-left: 2px solid $clr-gray-xxd;
+          background: $clr-gray-xxl;
+        }
 
-      .position-container {
-        background: transparent;
-        color: $clr-gray-xxl;
-        fill: $clr-gray-xxl;
-        transition: all $tTime;
-      }
-
-      menu {
-        &.primary {
+        header {
           button {
-            font-weight: 600;
-            text-transform: uppercase;
+            transform: rotate(0) scale(1);
+            line-height: 0;
+            transition: transform $tTime / 2;
 
-            &.active {
-              color: $clr-green-d;
-
-              mat-icon {
-                opacity: 1;
-                transform: translateY(8px);
-              }
+            &:hover {
+              transform: rotate(180deg) scale(1.25);
             }
 
             mat-icon {
-              width: 14px;
-              stroke: $clr-gray-xd;
-              opacity: 0;
-              transform: translateY(-2px);
-              transition: opacity $tTime, transform $tTime;
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+
+        ul {
+          button {
+            transition: background $tTime;
+
+            &:hover {
+              color: $clr-brown-l;
+              text-decoration: underline;
             }
           }
         }
@@ -88,18 +128,50 @@ $tTime: .35s;
 }
 
 @media screen and (min-width: $screen-md-min) {
+  :host {
+    ::ng-deep {
+      .collapse-menu-trigger {
+        margin-top: -2px;
+      }
+    }
+  }
+
   [logo] {
     width: 180px;
   }
 }
 
 @media screen and (min-width: $screen-lg-min) {
+  :host {
+    &::ng-deep {
+      menu {
+        &.primary {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
   [logo] {
-    width: 250px;
+    width: 220px;
   }
 }
 
 @media screen and (min-width: $screen-xl-min) {
+  :host {
+    &::ng-deep {
+      menu {
+        &.primary {
+          margin-top: 3px;
+
+          button {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
   [logo] {
     width: 300px;
   }
