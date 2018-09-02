@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600,800');
+
+@mixin titleFont() {
+  font-family: Montserrat, sans-serif;
+}
+
+@mixin bodyFont() {
+  font-family: sans-serif;
+}
+
+*,
+.body-font {
+  @include bodyFont();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title-font {
+  @include titleFont();
+}

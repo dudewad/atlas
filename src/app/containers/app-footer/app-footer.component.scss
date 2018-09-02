@@ -1,0 +1,109 @@
+@import '~atlas-theme/src/styles/core/breakpoints';
+@import '~atlas-theme/src/styles/core/variables';
+
+footer {
+  background: $clr-gray-xd;
+  color: $clr-gray-xxl;
+  padding: 60px 0;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid $clr-gray-xxl;
+  border-bottom: none;
+  opacity: .25;
+}
+
+section {
+  margin: 80px 0;
+  text-align: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin-bottom: 40px;
+  }
+}
+
+.brand {
+  mat-icon {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.social {
+  ul {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  mat-icon {
+    margin: 0 40px;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+}
+
+.content {
+  margin: 100px 0;
+
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  footer {
+    padding: 80px 0 60px 0;
+  }
+
+  .brand {
+    mat-icon {
+      width: 260px;
+    }
+  }
+}
+
+.columns {
+  display: inline-block;
+  magin: 0 auto;
+}
+
+.column {
+  display: inline-block;
+  margin: 0 120px;
+
+  ul {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+  footer {
+    padding: 130px 0 60px 0;
+  }
+
+  .brand {
+    mat-icon {
+      width: 340px;
+    }
+  }
+}

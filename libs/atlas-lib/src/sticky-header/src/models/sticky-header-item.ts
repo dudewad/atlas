@@ -1,3 +1,5 @@
+import { StickyHeaderItemAction } from './sticky-header-item-action';
+
 export interface StickyHeaderItem {
   /**
    * The visible lable for the item on screen
@@ -10,4 +12,5 @@ export interface StickyHeaderItem {
    * means it will always show
    */
   showAt?: string;
+  action: StickyHeaderItemAction;
 }

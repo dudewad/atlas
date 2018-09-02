@@ -1,3 +1,3 @@
-export * from './src/components/index';
-export * from './src/models/index';
+export * from './src/components';
+export * from './src/models';
 export * from './src/sticky-header.module';

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { StickyHeaderComponent } from './sticky-header.component';
 
@@ -8,7 +10,11 @@ describe('StickyHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StickyHeaderComponent ]
+      imports: [
+        BrowserModule,
+        CommonModule,
+      ],
+      declarations: [StickyHeaderComponent],
     })
     .compileComponents();
   }));

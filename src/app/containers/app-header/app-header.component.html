@@ -1,0 +1,14 @@
+<atl-sticky-header [items]="menuItems"
+                   [breakpointConfig]="bpCfg"
+                   [activeIndicator]="'caret-down'">
+  <mat-icon [svgIcon]="logoIcon" logo></mat-icon>
+  <mat-icon [svgIcon]="'menu'" collapse-menu-trigger></mat-icon>
+  <mat-icon [svgIcon]="'close'" collapse-menu-close-trigger></mat-icon>
+  <ng-container rich-menu-content>
+    <atl-rich-content-item *ngFor="let item of menuItems;" [name]="item.action.target">
+      <div class="page-container">
+        {{ item.label }}
+      </div>
+    </atl-rich-content-item>
+  </ng-container>
+</atl-sticky-header>

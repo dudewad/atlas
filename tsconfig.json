@@ -24,16 +24,16 @@
         "src/app/*"
       ],
       "atlas-lib": [
-        "dist/atlas-lib"
+        "libs/atlas-lib/src"
       ],
       "atlas-lib/*": [
-        "dist/atlas-lib/*"
+        "libs/atlas-lib/src/*"
       ],
       "atlas-theme": [
-        "dist/atlas-theme"
+        "libs/atlas-theme/src"
       ],
       "atlas-theme/*": [
-        "dist/atlas-theme/*"
+        "libs/atlas-theme/src/*"
       ]
     }
   }

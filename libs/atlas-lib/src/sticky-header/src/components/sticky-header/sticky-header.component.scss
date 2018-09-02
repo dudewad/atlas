@@ -1,10 +1,32 @@
 @import '~atlas-theme/src/styles/core/breakpoints';
 @import '~atlas-theme/src/styles/core/mixins';
 
-$tTime: .2s;
+$tTime: .35s;
 
 :host {
-  @include pageContainer();
+  &.sticking {
+    .position-container {
+      position: fixed;
+      display: block;
+    }
+
+    &.has-placeholder {
+      .header-placeholder {
+        display: block;
+      }
+    }
+  }
+
+  .position-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+atl-rich-content-item {
+  display: none;
 }
 
 menu {
@@ -14,7 +36,21 @@ menu {
 
   &.primary {
     float: right;
-    margin: 4px 0 0 0;
+
+    button {
+      mat-icon {
+        display: block;
+        margin: 0 auto;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &.active {
+        mat-icon {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &.collapsed {
@@ -26,11 +62,13 @@ menu {
     height: 100%;
     background: rgba(0, 0, 0, .5);
     transition: opacity $tTime, width $tTime;
+    pointer-events: none;
 
     &.active {
       opacity: 1;
       width: 100%;
       transition: width 0s;
+      pointer-events: auto;
 
       .menu-area {
         transform: translateX(0);
@@ -55,7 +93,7 @@ menu {
       position: absolute;
       display: block;
       right: 0;
-      width: 250px;
+      width: 100%;
       height: 100%;
       transform: translateX(100%);
       transition: transform $tTime;
@@ -81,18 +119,28 @@ li {
   }
 }
 
+.header-placeholder {
+  display: none;
+}
+
 .collapse-menu-trigger {
-  float: right;
-  margin-left: 30px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 0;
 }
 
 .header-content {
-  padding-top: 40px;
+  position: relative;
+  padding: 30px 0;
 }
 
 .logo {
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  width: 100%;
+  line-height: 0;
+  text-align: center;
 }
 
 .close-hit-area {
@@ -101,6 +149,54 @@ li {
   top: 0;
   width: 100%;
   height: 100%;
+}
+
+.rich-menu-content {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+
+  &::ng-deep {
+    atl-rich-content-item {
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+
+      &.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .collapse-menu-trigger {
+    position: relative;
+    top: auto;
+    right: auto;
+    float: right;
+    margin-left: 30px;
+    transform: none;
+  }
+
+  .header-content {
+    padding: 40px 0 30px 0;
+  }
+
+  .logo {
+    display: inline-block;
+    width: auto;
+    text-align: left;
+  }
+
+  menu {
+    &.collapsed {
+      .menu-area {
+        width: 350px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $screen-lg-min) {
