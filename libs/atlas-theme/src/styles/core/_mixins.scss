@@ -17,3 +17,12 @@
     max-width: $screen-xl-min;
   }
 }
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+  }
+}

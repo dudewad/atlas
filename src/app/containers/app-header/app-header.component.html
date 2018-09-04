@@ -1,8 +1,15 @@
 <atl-sticky-header [items]="menuItems"
                    [breakpointConfig]="bpCfg"
                    [activeIndicator]="'caret-down'">
-  <mat-icon [svgIcon]="logoIcon" logo></mat-icon>
-  <mat-icon [svgIcon]="'menu'" collapse-menu-trigger></mat-icon>
+  <mat-icon svgIcon="logo-full" logo></mat-icon>
+  <span collapse-menu-trigger>
+    <span class="collapse-trigger-sm">
+      <mat-icon svgIcon="menu"></mat-icon>
+    </span>
+    <span class="collapse-trigger-lg">
+      MORE <mat-icon svgIcon="caret-down"></mat-icon>
+    </span>
+  </span>
   <mat-icon [svgIcon]="'close'" collapse-menu-close-trigger></mat-icon>
   <ng-container rich-menu-content>
     <atl-rich-content-item [name]="'shop'">
