@@ -1,9 +1,11 @@
+import { BreakpointConfig } from 'atlas-lib';
+
 const sm = 480;
 const md = 768;
 const lg = 1024;
 const xl = 1280;
 
-export const BpCfg = {
+export const BpCfg: BreakpointConfig = {
   xs: `(max-width: ${sm - 1}px)`,
   xsMax: `(max-width: ${sm - 1}px)`,
 

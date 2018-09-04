@@ -1,0 +1,50 @@
+<div class="header-placeholder" #placeholder *ngIf="usePlaceholder"></div>
+<div class="position-container">
+  <section class="page-container">
+    <div class="header-content" #content>
+      <div class="logo">
+        <ng-content select="[logo]"></ng-content>
+      </div>
+      <button *ngIf="collapsedItems.length"
+              class="collapse-menu-trigger"
+              [class.active]="collapseMenuActive"
+              (click)="toggleCollapseMenu()">
+        <ng-content select="[collapse-menu-trigger]"></ng-content>
+      </button>
+      <menu *ngIf="primaryItems.length" class="primary">
+        <ul>
+          <li *ngFor="let item of primaryItems;">
+            <button [class.active]="selectedMenuItem === item"
+                    (click)="onPrimaryItemClick(item)">
+              {{item.label}}
+              <mat-icon [svgIcon]="activeIndicator"></mat-icon>
+            </button>
+          </li>
+        </ul>
+      </menu>
+      <menu *ngIf="collapsedItems.length"
+            class="collapsed"
+            [class.active]="collapseMenuActive">
+        <div class="close-hit-area" (click)="toggleCollapseMenu()"></div>
+        <div class="menu-area">
+          <header>
+            <button class="collapse-menu-close-trigger"
+                    (click)="toggleCollapseMenu()">
+              <ng-content select="[collapse-menu-close-trigger]"></ng-content>
+            </button>
+          </header>
+          <ul>
+            <li *ngFor=" let item of collapsedItems;">
+              <button (click)="onCollapseItemClick(item)">
+                {{item.label}}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </menu>
+    </div>
+  </section>
+  <section class="rich-menu-content" #richMenuContent>
+    <ng-content select="[rich-menu-content]"></ng-content>
+  </section>
+</div>

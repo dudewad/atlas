@@ -7,13 +7,20 @@ import { StickyHeaderModule } from 'atlas-lib';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent, NotFoundPageComponent } from './containers';
+import {
+  AppFooterComponent,
+  AppHeaderComponent,
+  MainPageComponent,
+  NotFoundPageComponent,
+} from './containers';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     NotFoundPageComponent,
+    AppHeaderComponent,
+    AppFooterComponent,
   ],
   imports: [
     AppRoutingModule,

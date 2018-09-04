@@ -1,9 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~atlas-theme/src/atlas-theme';
 
-/**
- * Reset
- */
-body {
-  margin: 0;
-}
+@import './app/styles/font';
+@import './app/styles/layout';

@@ -1,0 +1,5 @@
+@import '~atlas-theme/src/styles/core/mixins';
+
+.page-container {
+  @include pageContainer();
+}
